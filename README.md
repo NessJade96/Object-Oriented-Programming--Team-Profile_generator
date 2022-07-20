@@ -6,9 +6,15 @@ A Node.js command-line application that takes in information about employees on 
 
 ## Planning Notes:
 
-1. Create all the files required for developement and testing. Create the index.html and do the styling w/ bootstrap and dummy text.
+1. Create all the files required for developement and testing. Create the index.html and do the styling w/ tailwind and dummy text into html.
 
-2. Write tests to structure the code - TDD
+2. Write tests to structure the code - TDD ->
+   index.js inquirer planning:
+   -ask manager questions
+   -then run the would you like to add employee question
+   -then if Q === engineer then run the engineer quetsions
+   -else if Q === intern then run the intern questions
+   -else end the application and create the html file.
 
 3. Using that html code impliment into the inquirer js file to ask employee questions and create the html document. The inquirer questions will populate the employee classes created.
 

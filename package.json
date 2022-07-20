@@ -18,5 +18,9 @@
   "homepage": "https://github.com/NessJade96/Object-Oriented-Programming--Team-Profile_generator#readme",
   "devDependencies": {
     "tailwindcss": "^3.1.6"
+  },
+  "dependencies": {
+    "inquirer": "8.0",
+    "jest": "^28.1.3"
   }
 }

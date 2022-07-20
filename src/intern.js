@@ -1,9 +1,13 @@
-extend employee 
+const Employee = require('./employee');
 
-school
+class Intern extends Employee {
+    constructor(school){
+        super(name, id, email)
+        this.school = this.school
+    }    
+  
+    getSchool()
 
+    getRole() //—overridden to return 'Intern'
+} 
 
-getSchool()
-
-
-getRole()—overridden to return 'Intern'

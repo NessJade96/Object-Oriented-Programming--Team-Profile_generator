@@ -1,9 +1,12 @@
-extend employee 
+const Employee = require('./employee');
 
-github—GitHub username
-
-
-getGithub()
-
-
-getRole()—overridden to return 'Engineer'
+class Engineer extends Employee {
+    constructor(gitHub){
+        super(name, id, email)
+        this.gitHub = this.gitHub
+    }    
+  
+    getGithub()
+        
+    getRole() //—overridden to return 'Engineer'
+} 
