@@ -42,6 +42,9 @@ started the index.js code using inquirer - Inquirer to prompt questions and rece
 Commit 3:
 Used require() to import the other js pages. All the promise functions to also add a new key into each element of the array - role. Then I used map to go through each of the elements in the array and if they equaled to Manager - then use the constructor to create a manager element. And so on for each of the intern and engineers.
 
+Commit 4:
+Updated the HTML (removed the icons because it was breaking the html? might troubleshoot and add back in later). Copied the HTML I will be using into the index.js -> and seperated out the Manager, Enginner, and Inter HTML into variables (still need to create variables and call in html to generate the users answers.)
+
 ## Heroicons used:
 
 ### manager:
