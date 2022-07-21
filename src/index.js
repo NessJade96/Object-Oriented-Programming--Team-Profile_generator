@@ -141,14 +141,12 @@ const employeeInformation = getManagerInfo([])
         return manager;
       }
       if (employee.role === "Engineer") {
-        const engineer = [
-          new Engineer(
-            employee.engineerName,
-            employee.engineerID,
-            employee.engineerEmail,
-            employee.engineerGitHub
-          ),
-        ];
+        const engineer = new Engineer(
+          employee.engineerName,
+          employee.engineerID,
+          employee.engineerEmail,
+          employee.engineerGitHub
+        );
         console.log(
           "🚀 ~ file: index.js ~ line 148 ~ myTeam ~ engineer",
           engineer
@@ -156,17 +154,88 @@ const employeeInformation = getManagerInfo([])
         return engineer;
       }
       if (employee.role === "Intern") {
-        const intern = [
-          new Intern(
-            employee.internName,
-            employee.internID,
-            employee.internEmail,
-            employee.internSchool
-          ),
-        ];
+        const intern = new Intern(
+          employee.internName,
+          employee.internID,
+          employee.internEmail,
+          employee.internSchool
+        );
         console.log("🚀 ~ file: index.js ~ line 159 ~ myTeam ~ intern", intern);
         return intern;
       }
+      throw new Error("employee role not found.");
     });
+    console.log("🚀 ~ file: index.js ~ line 175 ~ myTeam ~ myTeam", myTeam);
+    console.log("check out my intern", myTeam[1].getName());
+
+    const ManagerCard = `        <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+    <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+      <h2 class="py-2 text-2xl">Vanessa</h2>
+      <div>
+        <h3 class="flex text-xl">
+          Manager
+        </h3>
+      </div>
+    </div>
+    <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+      <div class="flex p-2"><p class="">ID:</p><p></p> </div>
+      <div class="flex p-2"><p class="">Email:</p><p></p> </div>
+      <div class="flex p-2"><p class="">office number:</p><p></p> </div>
+    </div>
+  </div>`;
+    const engineerCard = `          <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+  <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+    <h2 class="py-2 text-2xl">Adam</h2>
+    <div>           
+      <h3 class="flex text-xl">
+        Enigneer
+      </h3>
+    </div>
+  </div>
+  <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+    <div class="flex p-2"><p class="">ID:</p> <p></p></div>
+    <div class="flex p-2"><p class="">Email:</p> <p></p></div>
+    <div class="flex p-2"><p class="">GitHub:</p> <p></p></div>
+  </div>
+</div>`;
+    const internCard = `          <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+    <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+      <h2 class="py-2 text-2xl">Sami</h2>
+      <div>           
+        <h3 class="flex text-xl">
+          Intern
+        </h3>
+      </div>
+    </div>
+    <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+      <div class="flex p-2"><p class="">ID:</p><p></p> </div>
+      <div class="flex p-2"><p class="">Email:</p><p></p> </div>
+      <div class="flex p-2"><p class="">School:</p><p></p> </div>
+    </div>
+  </div>`;
+    const innerHTML = `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/dist/output.css" rel="stylesheet" />
+        <title>Document</title>
+      </head>
+      <body>
+        <h1
+          class="w-full py-10 text-3xl font-bold text-center text-green-700 underline bg-green-300 test-lg">
+          My Team!
+        </h1>
+        <div class="flex flex-wrap p-3 place-content-center">
+        ${ManagerCard}
+        ${engineerCard}
+        ${internCard}
+
+        </div>
+    </html>`;
+    fs.writeFile("indexTemplate.html", innerHTML, (err) =>
+      err ? console.error(err) : console.log("Success!")
+    );
   })
   .catch(console.error);
