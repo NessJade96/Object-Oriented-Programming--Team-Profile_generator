@@ -1,5 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Employee = require("./employee");
+const Manager = require("./manager");
+const Engineer = require("./engineer");
+const Intern = require("./intern");
 
 const managerInfo = [
   {
@@ -39,106 +43,59 @@ const addMoreEmployees = [
   },
 ];
 
-const engineer = [
+const engineerQuestions = [
   {
     type: "input",
     name: "engineerName",
     message: "What is the engineers name?",
-    // when(answers) {
-    //   return answers.addEmployee === "Engineer";
-    // },
   },
   {
     type: "input",
     name: "engineerID",
     message: "What is the engineers ID?",
-    // when(answers) {
-    //   return answers.addEmployee === "Engineer";
-    // },
   },
   {
     type: "input",
     name: "engineerEmail",
     message: "What is the engineers email?",
-    // when(answers) {
-    //   return answers.addEmployee === "Engineer";
-    // },
   },
   {
     type: "input",
     name: "engineerGitHub",
     message: "What is the engineers GitHub username?",
-    // when(answers) {
-    //   return answers.addEmployee === "Engineer";
-    // },
   },
 ];
 
-const intern = [
+const internQuestions = [
   {
     type: "input",
-    name: "interName",
+    name: "internName",
     message: "What is the interns name?",
-    // when(answers) {
-    //   return answers.addEmployee === "Intern";
-    // },
   },
   {
     type: "input",
-    name: "interID",
+    name: "internID",
     message: "What is the interns ID?",
-    // when(answers) {
-    //   return answers.addEmployee === "Intern";
-    // },
   },
   {
     type: "input",
-    name: "interEmail",
+    name: "internEmail",
     message: "What is the interns email?",
-    // when(answers) {
-    //   return answers.addEmployee === "Intern";
-    // },
   },
   {
     type: "input",
-    name: "interSchool",
+    name: "internSchool",
     message: "What is the interns school?",
-    // when(answers) {
-    //   return answers.addEmployee === "Intern";
-    // },
   },
 ];
-
-const name = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is your name?",
-  },
-  {
-    type: "list",
-    name: "repeat",
-    message: "repeat?",
-    choices: ["yes", "no"],
-  },
-];
-
-function getNames(previousAnswers = []) {
-  return inquirer.prompt(name).then((answers) => {
-    const allAnswers = [...previousAnswers, answers];
-    if (answers.repeat === "yes") {
-      return getNames(allAnswers);
-    }
-
-    return allAnswers;
-  });
-}
 
 function getManagerInfo() {
   return inquirer.prompt(managerInfo).then((answers) => {
-    getAnotherEmployee([answers]).then((answers) => {
-      return answers;
-    });
+    return getAnotherEmployee([{...answers, role: "Manager"}]).then(
+      (answers) => {
+        return answers;
+      }
+    );
   });
 }
 
@@ -149,59 +106,67 @@ function getAnotherEmployee(employees = []) {
     } else if (answers.addEmployee === "Intern") {
       return getIntern(employees);
     }
+
     return employees;
   });
 }
 
 function getEngineer(employees = []) {
-  return inquirer.prompt(engineer).then((answers) => {
-    return getAnotherEmployee([...employees, answers]);
+  return inquirer.prompt(engineerQuestions).then((answers) => {
+    return getAnotherEmployee([...employees, {...answers, role: "Engineer"}]);
   });
 }
 
 function getIntern(employees = []) {
-  return inquirer.prompt(intern).then((answers) => {
-    return getAnotherEmployee([...employees, answers]);
+  return inquirer.prompt(internQuestions).then((answers) => {
+    return getAnotherEmployee([...employees, {...answers, role: "Intern"}]);
   });
 }
 
-// getManagerInfo().then().catch();
-// getAnotherEmployee().then().catch();
-// getEngineer().then().catch();
-// getIntern().then().catch();
-
-getManagerInfo([])
-  .then((answers) => console.log(answers))
+const employeeInformation = getManagerInfo([])
+  .then((answers) => {
+    console.log("Hello", answers);
+    const myTeam = answers.map((employee) => {
+      if (employee.role === "Manager") {
+        const manager = new Manager(
+          employee.managerName,
+          employee.managerID,
+          employee.managerEmail,
+          employee.managerOfficeNumber
+        );
+        console.log(
+          "🚀 ~ file: index.js ~ line 137 ~ myTeam ~ manager",
+          manager
+        );
+        return manager;
+      }
+      if (employee.role === "Engineer") {
+        const engineer = [
+          new Engineer(
+            employee.engineerName,
+            employee.engineerID,
+            employee.engineerEmail,
+            employee.engineerGitHub
+          ),
+        ];
+        console.log(
+          "🚀 ~ file: index.js ~ line 148 ~ myTeam ~ engineer",
+          engineer
+        );
+        return engineer;
+      }
+      if (employee.role === "Intern") {
+        const intern = [
+          new Intern(
+            employee.internName,
+            employee.internID,
+            employee.internEmail,
+            employee.internSchool
+          ),
+        ];
+        console.log("🚀 ~ file: index.js ~ line 159 ~ myTeam ~ intern", intern);
+        return intern;
+      }
+    });
+  })
   .catch(console.error);
-
-// inquirer
-//   .prompt(questions, engineer, intern, addMoreEmployees)
-//   .then(
-//     (answers) => {
-//     if (answers.addEmployee === "Engineer") {
-//       return addEngineer();
-//     }
-//   })
-//   .prompt(addMoreEmployees);
-
-// function addEngineer(){
-//     return inquirer.prompt(engineer).then((answers) => {
-//         if ()
-//     })
-// }
-
-/*
-run out manager questions 
-then run the would you like to add employee question
-then if Q === engineer then run the engineer quetsions 
-else if Q === intern then run the intern questions 
-else end the application and create the html file.
-*/
-
-//   .catch((error) => {
-//     if (error.isTtyError) {
-//       // Prompt couldn't be rendered in the current environment
-//     } else {
-//       // Something else went wrong
-//     }
-//   });

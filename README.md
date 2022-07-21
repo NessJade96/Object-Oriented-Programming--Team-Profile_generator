@@ -16,7 +16,9 @@ A Node.js command-line application that takes in information about employees on 
    -else if Q === intern then run the intern questions
    -else end the application and create the html file.
 
-3. Using that html code impliment into the inquirer js file to ask employee questions and create the html document. The inquirer questions will populate the employee classes created.
+3. Once the user inputs answers, I need to store the user answers into the Classes (Manager, inter, engineer). Then I will be able to call those classes into HTML to generate the document in the next step.
+
+4.Using that html code impliment into the inquirer js file to ask employee questions and create the html document. The inquirer questions will populate the employee classes created.
 
 BONUS: Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
 
@@ -35,6 +37,10 @@ Commit 1:
 Setup folder structures and README for planning notes. Created the HTML structure into index.html so I could create styling. Installed Tailwind to impliment styling.
 
 Commit 2:
+started the index.js code using inquirer - Inquirer to prompt questions and receive answers. Functions with promises to eventually return all of the answers, looping through the different engineers/interns.
+
+Commit 3:
+Used require() to import the other js pages. All the promise functions to also add a new key into each element of the array - role. Then I used map to go through each of the elements in the array and if they equaled to Manager - then use the constructor to create a manager element. And so on for each of the intern and engineers.
 
 ## Heroicons used:
 
@@ -67,3 +73,24 @@ Commit 2:
 <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
 <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
 </svg>
+
+[
+{
+managerName: 'Ness',
+managerID: 'test',
+managerEmail: 'test',
+managerOfficeNumber: 'test'
+},
+{
+engineerName: 'test',
+engineerID: 'test',
+engineerEmail: 'test',
+engineerGitHub: 'test'
+},
+{
+internName: 'test',
+internID: 'test',
+internEmail: 'test',
+internSchool: 'test'
+}
+]
