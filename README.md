@@ -48,6 +48,9 @@ Updated the HTML (removed the icons because it was breaking the html? might trou
 Commit 5:
 In the index.js file I created functions within the innerHTML to add in the employee cards, depending on what the user inputs.
 
+Commit 6:
+links to Github and Email work in html :)
+
 ## Heroicons used:
 
 ### manager:

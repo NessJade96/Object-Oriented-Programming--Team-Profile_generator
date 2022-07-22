@@ -190,7 +190,7 @@ const employeeInformation = getManagerInfo([])
         </div>
         <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
         <div class="flex p-2"><p class="">ID:</p><p> &nbsp${managerID}</p> </div>
-        <div class="flex p-2"><p class="">Email:</p><p> &nbsp${managerEmail}</p> </div>
+        <div class="flex p-2"><p class="">Email:</p><p> &nbsp<a href = "mailto: ${managerEmail}">Send Email</a></p> </div>
         <div class="flex p-2"><p class="">office number:</p><p> &nbsp${mngOfficeNumber}</p> </div>
         </div>
         </div>`;
@@ -213,8 +213,8 @@ const employeeInformation = getManagerInfo([])
       </div>
       <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
         <div class="flex p-2"><p class="">ID:</p> <p>&nbsp${engineerID}</p></div>
-        <div class="flex p-2"><p class="">Email:</p> <p></p>&nbsp${engineerEmail}</div>
-        <div class="flex p-2"><p class="">GitHub:</p> <p>&nbsp${engineerGitHub}</p></div>
+        <div class="flex p-2"><p class="">Email:</p> <p></p>&nbsp<a href = "mailto: ${engineerEmail}">Send Email</a></div>
+        <div class="flex p-2"><p class="">GitHub:</p> <p>&nbsp <a target="_blank" href="https://github.com/?user=${engineerGitHub}">GitHub</a></p></div>
       </div>
     </div>`;
         innerHTML += `${engineerCard}`;
@@ -236,7 +236,7 @@ const employeeInformation = getManagerInfo([])
       </div>
       <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
       <div class="flex p-2"><p class="">ID:</p> <p> &nbsp${internID}</p></div>
-      <div class="flex p-2"><p class="">Email:</p> <p></p> &nbsp${internEmail}</div>
+      <div class="flex p-2"><p class="">Email:</p> <p></p> &nbsp<a href = "mailto: ${internEmail}">Send Email</a></div>
       <div class="flex p-2"><p class="">School:</p> <p> &nbsp${internSchool}</p></div>
       </div>
       </div>`;
@@ -247,7 +247,7 @@ const employeeInformation = getManagerInfo([])
     </html>`;
 
     fs.writeFile("indexTemplate.html", innerHTML, (err) =>
-      err ? console.error(err) : console.log("Success!")
+      err ? console.error(err) : console.log("Your HTML file has been created!")
     );
   })
   .catch(console.error);
