@@ -193,7 +193,7 @@ function getIntern(employees = []) {
 getManagerInfo([])
   .then((answers) => {
     const myTeam = answers.map((employee) => {
-      switch (employee.getRole()) {
+      switch (employee.role) {
         case "Manager":
           return new Manager(
             employee.managerName,
@@ -286,7 +286,7 @@ getManagerInfo([])
         const internEmail = employee.getEmail();
         const internSchool = employee.getSchool();
         const internID = employee.getId();
-        innerHTML = `<div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+        innerHTML += `<div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
         <div class="w-full p-3 font-bold text-green-700 bg-green-300">
         <h2 class="py-2 text-2xl">${internName}</h2>
         <div>
