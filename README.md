@@ -45,6 +45,9 @@ Used require() to import the other js pages. All the promise functions to also a
 Commit 4:
 Updated the HTML (removed the icons because it was breaking the html? might troubleshoot and add back in later). Copied the HTML I will be using into the index.js -> and seperated out the Manager, Enginner, and Inter HTML into variables (still need to create variables and call in html to generate the users answers.)
 
+Commit 5:
+In the index.js file I created functions within the innerHTML to add in the employee cards, depending on what the user inputs.
+
 ## Heroicons used:
 
 ### manager:

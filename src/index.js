@@ -134,10 +134,6 @@ const employeeInformation = getManagerInfo([])
           employee.managerEmail,
           employee.managerOfficeNumber
         );
-        console.log(
-          "🚀 ~ file: index.js ~ line 137 ~ myTeam ~ manager",
-          manager
-        );
         return manager;
       }
       if (employee.role === "Engineer") {
@@ -146,10 +142,6 @@ const employeeInformation = getManagerInfo([])
           employee.engineerID,
           employee.engineerEmail,
           employee.engineerGitHub
-        );
-        console.log(
-          "🚀 ~ file: index.js ~ line 148 ~ myTeam ~ engineer",
-          engineer
         );
         return engineer;
       }
@@ -160,60 +152,12 @@ const employeeInformation = getManagerInfo([])
           employee.internEmail,
           employee.internSchool
         );
-        console.log("🚀 ~ file: index.js ~ line 159 ~ myTeam ~ intern", intern);
         return intern;
       }
       throw new Error("employee role not found.");
     });
-    console.log("🚀 ~ file: index.js ~ line 175 ~ myTeam ~ myTeam", myTeam);
-    console.log("check out my intern", myTeam[1].getName());
 
-    const ManagerCard = `        <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
-    <div class="w-full p-3 font-bold text-green-700 bg-green-300">
-      <h2 class="py-2 text-2xl">Vanessa</h2>
-      <div>
-        <h3 class="flex text-xl">
-          Manager
-        </h3>
-      </div>
-    </div>
-    <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
-      <div class="flex p-2"><p class="">ID:</p><p></p> </div>
-      <div class="flex p-2"><p class="">Email:</p><p></p> </div>
-      <div class="flex p-2"><p class="">office number:</p><p></p> </div>
-    </div>
-  </div>`;
-    const engineerCard = `          <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
-  <div class="w-full p-3 font-bold text-green-700 bg-green-300">
-    <h2 class="py-2 text-2xl">Adam</h2>
-    <div>           
-      <h3 class="flex text-xl">
-        Enigneer
-      </h3>
-    </div>
-  </div>
-  <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
-    <div class="flex p-2"><p class="">ID:</p> <p></p></div>
-    <div class="flex p-2"><p class="">Email:</p> <p></p></div>
-    <div class="flex p-2"><p class="">GitHub:</p> <p></p></div>
-  </div>
-</div>`;
-    const internCard = `          <div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
-    <div class="w-full p-3 font-bold text-green-700 bg-green-300">
-      <h2 class="py-2 text-2xl">Sami</h2>
-      <div>           
-        <h3 class="flex text-xl">
-          Intern
-        </h3>
-      </div>
-    </div>
-    <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
-      <div class="flex p-2"><p class="">ID:</p><p></p> </div>
-      <div class="flex p-2"><p class="">Email:</p><p></p> </div>
-      <div class="flex p-2"><p class="">School:</p><p></p> </div>
-    </div>
-  </div>`;
-    const innerHTML = `<!DOCTYPE html>
+    let innerHTML = `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -227,13 +171,81 @@ const employeeInformation = getManagerInfo([])
           class="w-full py-10 text-3xl font-bold text-center text-green-700 underline bg-green-300 test-lg">
           My Team!
         </h1>
-        <div class="flex flex-wrap p-3 place-content-center">
-        ${ManagerCard}
-        ${engineerCard}
-        ${internCard}
-
+        <div class="flex flex-wrap p-3 place-content-center">`;
+    myTeam.forEach((employee) => {
+      if (employee.getRole() === "Manager") {
+        const managerName = employee.getName();
+        const managerRole = employee.getRole();
+        const managerID = employee.getId();
+        const managerEmail = employee.getEmail();
+        const mngOfficeNumber = employee.getOfficeNumber();
+        let ManagerCard = `<div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+        <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+        <h2 class="py-2 text-2xl">${managerName}</h2>
+        <div>
+        <h3 class="flex text-xl">
+        ${managerRole}
+        </h3>
         </div>
+        </div>
+        <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+        <div class="flex p-2"><p class="">ID:</p><p> &nbsp${managerID}</p> </div>
+        <div class="flex p-2"><p class="">Email:</p><p> &nbsp${managerEmail}</p> </div>
+        <div class="flex p-2"><p class="">office number:</p><p> &nbsp${mngOfficeNumber}</p> </div>
+        </div>
+        </div>`;
+        innerHTML += `${ManagerCard}`;
+      }
+      if (employee.getRole() === "Engineer") {
+        const engineerRole = employee.getRole();
+        const engineerName = employee.getName();
+        const engineerEmail = employee.getEmail();
+        const engineerGitHub = employee.getGithub();
+        const engineerID = employee.getId();
+        let engineerCard = `<div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+      <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+        <h2 class="py-2 text-2xl">${engineerName}</h2>
+        <div>
+          <h3 class="flex text-xl">
+            ${engineerRole}
+          </h3>
+        </div>
+      </div>
+      <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+        <div class="flex p-2"><p class="">ID:</p> <p>&nbsp${engineerID}</p></div>
+        <div class="flex p-2"><p class="">Email:</p> <p></p>&nbsp${engineerEmail}</div>
+        <div class="flex p-2"><p class="">GitHub:</p> <p>&nbsp${engineerGitHub}</p></div>
+      </div>
+    </div>`;
+        innerHTML += `${engineerCard}`;
+      }
+      if (employee.getRole() === "Intern") {
+        const internRole = employee.getRole();
+        const internName = employee.getName();
+        const internEmail = employee.getEmail();
+        const internSchool = employee.getSchool();
+        const internID = employee.getId();
+        let internCard = `<div class="w-1/4 m-12 border-2 drop-shadow-lg bg-slate-100">
+        <div class="w-full p-3 font-bold text-green-700 bg-green-300">
+        <h2 class="py-2 text-2xl">${internName}</h2>
+        <div>
+        <h3 class="flex text-xl">
+        ${internRole}
+        </h3>
+        </div>
+      </div>
+      <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
+      <div class="flex p-2"><p class="">ID:</p> <p> &nbsp${internID}</p></div>
+      <div class="flex p-2"><p class="">Email:</p> <p></p> &nbsp${internEmail}</div>
+      <div class="flex p-2"><p class="">School:</p> <p> &nbsp${internSchool}</p></div>
+      </div>
+      </div>`;
+        innerHTML += `${internCard}`;
+      }
+    });
+    innerHTML += ` </div>
     </html>`;
+
     fs.writeFile("indexTemplate.html", innerHTML, (err) =>
       err ? console.error(err) : console.log("Success!")
     );
