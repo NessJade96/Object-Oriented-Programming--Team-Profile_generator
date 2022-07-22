@@ -24,7 +24,7 @@ BONUS: Finally, although it’s not a requirement, consider adding validation to
 
 ## Screenshots:
 
-![Finished product](./assets/images/)
+![Finished product](./assets/images/Final%20product.PNG)
 
 ## Links:
 
