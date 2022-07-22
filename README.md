@@ -30,7 +30,7 @@ BONUS: Finally, although it’s not a requirement, consider adding validation to
 
 GitHub: https://github.com/NessJade96/Object-Oriented-Programming--Team-Profile_generator
 Deploy: https://nessjade96.github.io/Object-Oriented-Programming--Team-Profile_generator/
-Video Walkthough: https://drive.google.com/file/d/11HwxxWYLLYf6gKEIaIXyE01otWD039rs/view
+Video Walkthough: https://watch.screencastify.com/v/2RRoQZOjBZkoSV9F3TTs
 
 ## Commit notes:
 
