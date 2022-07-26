@@ -276,7 +276,7 @@ getManagerInfo([])
       <div class="mx-4 my-8 border-2 divide-y bg-slate-50">
         <div class="flex p-2"><p class="">ID:</p> <p>&nbsp${engineerID}</p></div>
         <div class="flex p-2"><p class="">Email:</p> <p></p>&nbsp<a class="text-green-500 underline decoration-green-500" href = "mailto: ${engineerEmail}">Send Email</a></div>
-        <div class="flex p-2"><p class="">GitHub:</p> <p>&nbsp <a class="text-green-500 underline decoration-green-500" target="_blank" href="https://github.com/?user=${engineerGitHub}">GitHub</a></p></div>
+        <div class="flex p-2"><p class="">GitHub:</p> <p>&nbsp <a class="text-green-500 underline decoration-green-500" target="_blank" href="https://github.com/${engineerGitHub}">GitHub</a></p></div>
       </div>
     </div>`;
       }

@@ -4,6 +4,16 @@
 
 A Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
 
+## User setup:
+
+To run the style sheets run the following commands into the terminal:
+
+- npm run css
+
+Then open a new terminal window and type:
+
+- npm run start
+
 ## Planning Notes:
 
 1. Create all the files required for developement and testing. Create the index.html and do the styling w/ tailwind and dummy text into html.
